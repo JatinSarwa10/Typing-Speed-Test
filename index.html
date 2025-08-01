@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Typing Speed Test</h1>
+            <p>Test your typing speed and accuracy</p>
+        </header>
+
+        <div class="stats-container">
+            <div class="stat">
+                <span class="stat-label">Time</span>
+                <span class="stat-value" id="timer">60</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">WPM</span>
+                <span class="stat-value" id="wpm">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Accuracy</span>
+                <span class="stat-value" id="accuracy">100%</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Errors</span>
+                <span class="stat-value" id="errors">0</span>
+            </div>
+        </div>
+
+        <div class="text-container">
+            <div class="text-display" id="textDisplay"></div>
+        </div>
+
+        <div class="input-container">
+            <textarea 
+                id="textInput" 
+                placeholder="Click here and start typing when ready..."
+                disabled
+            ></textarea>
+        </div>
+
+        <div class="controls">
+            <button id="startBtn" class="btn primary">Start Test</button>
+            <button id="resetBtn" class="btn secondary">Reset</button>
+            <select id="timeSelect" class="time-selector">
+                <option value="30">30 seconds</option>
+                <option value="60" selected>60 seconds</option>
+                <option value="120">2 minutes</option>
+                <option value="300">5 minutes</option>
+            </select>
+        </div>
+
+        <div class="results" id="results" style="display: none;">
+            <h2>Test Results</h2>
+            <div class="result-item">
+                <span>Words Per Minute:</span>
+                <span id="finalWpm">0</span>
+            </div>
+            <div class="result-item">
+                <span>Accuracy:</span>
+                <span id="finalAccuracy">100%</span>
+            </div>
+            <div class="result-item">
+                <span>Total Characters:</span>
+                <span id="totalChars">0</span>
+            </div>
+            <div class="result-item">
+                <span>Correct Characters:</span>
+                <span id="correctChars">0</span>
+            </div>
+            <div class="result-item">
+                <span>Total Errors:</span>
+                <span id="totalErrors">0</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
