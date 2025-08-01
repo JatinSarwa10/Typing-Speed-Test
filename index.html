@@ -47,12 +47,33 @@
         <div class="controls">
             <button id="startBtn" class="btn primary">Start Test</button>
             <button id="resetBtn" class="btn secondary">Reset</button>
+            <button id="highScoresBtn" class="btn tertiary">High Scores</button>
             <select id="timeSelect" class="time-selector">
                 <option value="30">30 seconds</option>
                 <option value="60" selected>60 seconds</option>
                 <option value="120">2 minutes</option>
                 <option value="300">5 minutes</option>
             </select>
+            <select id="difficultySelect" class="difficulty-selector">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+                <option value="expert">Expert</option>
+            </select>
+        </div>
+
+        <!-- Countdown Overlay -->
+        <div class="countdown-overlay" id="countdownOverlay" style="display: none;">
+            <div class="countdown-content">
+                <div class="countdown-number" id="countdownNumber">3</div>
+                <div class="countdown-text">Get Ready!</div>
+            </div>
+        </div>
+
+        <!-- Keyboard Layout -->
+        <div class="keyboard-container" id="keyboardContainer" style="display: none;">
+            <h3>Keyboard Layout</h3>
+            <div class="keyboard" id="keyboard"></div>
         </div>
 
         <div class="results" id="results" style="display: none;">
@@ -78,6 +99,39 @@
                 <span id="totalErrors">0</span>
             </div>
         </div>
+
+        <!-- Error Heatmap -->
+        <div class="error-heatmap" id="errorHeatmap" style="display: none;">
+            <h3>Error Analysis</h3>
+            <div class="heatmap-container" id="heatmapContainer"></div>
+            <div class="heatmap-legend">
+                <span>Most Errors</span>
+                <div class="legend-gradient"></div>
+                <span>No Errors</span>
+            </div>
+        </div>
+
+        <!-- High Scores Modal -->
+        <div class="modal-overlay" id="highScoresModal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>High Scores</h2>
+                    <button class="close-btn" id="closeHighScores">&times;</button>
+                </div>
+                <div class="high-scores-content" id="highScoresContent">
+                    <!-- High scores will be populated here -->
+                </div>
+                <button class="btn secondary" id="clearScores">Clear All Scores</button>
+            </div>
+        </div>
+
+        <!-- Audio Elements -->
+        <audio id="correctSound" preload="auto">
+            <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmgfCE2R5/DFfCUFebbMeUWKOzRZjE4UZBR+UwcHAUIIdEQQXDZ5Loa+Qb5JJLh0TxcJRhd7eAoAOiYBKF1PVBYOFnVXGQFvGABJeHJJMAB0OxCUeHp1HAV6OzZUdHI8EBR3YQEBRjUUfmV9YzJEBA4qCWU1ACRUFAwKRZIhNGsXBAVcCBQJAw5vNQQ+Qy1fTklKIx0CfhF6T3c/MARZMwoHHAdAPwYlQgRTMRA8XhsJdUoGOXJJJw9mHgZBMikTZUoGOXJJJw9mHgZBMikTZUoGOXJJJw9mHgZBMik" type="audio/wav">
+        </audio>
+        <audio id="incorrectSound" preload="auto">
+            <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmgfCE2R5/DFfCUFebbMeUWKOzRZjE4UZBR+UwcHAUIIdEQQXDZ5Loa+Qb5JJLh0TxcJRhd7eAoAOiYBKF1PVBYOFnVXGQFvGABJeHJJMAB0OxCUeHp1HAV6OzZUdHI8EBR3YQEBRjUUfmV9YzJEBA4qCWU1ACRUFAwKRZIhNGsXBAVcCBQJAw5vNQQ+Qy1fTklKIx0CfhF6T3c/MARZMwoHHAdAPwYlQgRTMRA8XhsJdUoGOXJJJw9mHgZBMikTZUoGOXJJJw9mHgZBMikTZUoGOXJJJw9mHgZBMik" type="audio/wav">
+        </audio>
     </div>
 
     <script src="script.js"></script>
